@@ -1,0 +1,10 @@
+{
+  "name": "my-workstation",
+  "version": "0.0.1",
+  "author": "Eirikur Ari Petursson",
+  "summary": "Initial setup for my workstation"
+  "license": "UNLICENSED",
+  "source": "",
+  "dependencies": [],
+  "data_provider": null
+}

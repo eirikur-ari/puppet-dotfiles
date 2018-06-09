@@ -1,0 +1,16 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Puppet
+.librarian/
+.tmp/
+modules/
+spec/fixtures
+
+# Vagrant
+.vagrant/
+
+# Other
+*.swp
+*.log
