@@ -1,9 +1,8 @@
 node default {
-
   package { 'epel-release':
     ensure   => 'present',
     provider => 'rpm',
-    source   => 'http://fedora.skyggnir.is/epel/epel-release-latest-7.noarch.rpm',
+    source   => 'http://fedora.skyggnir.is/epel/epel-release-latest-7.noarch.rpm'
   }
 
   package { 'vim':  ensure => 'installed' }
@@ -31,5 +30,10 @@ node default {
     source            => 'git@github.com:eirikur-ari/dotfiles.git',
     trust_server_cert => true,
     require           => [ Package['git'], Package['pygments'] , Exec['add_github_to_known_hosts'] ]
+  }
+
+  exec { 'install_dotfiles':
+    command => '/bin/sh /usr/local/share/dotfiles/install.sh',
+    require => VCSREPO['/usr/local/share/dotfiles']
   }
 }
