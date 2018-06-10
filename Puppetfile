@@ -11,4 +11,5 @@ forge "https://forgeapi.puppetlabs.com"
 
 # A module from the Puppet Forge
 mod 'puppetlabs-stdlib', '4.25.1'
+mod 'puppetlabs-vcsrepo', '2.3.0'
 
