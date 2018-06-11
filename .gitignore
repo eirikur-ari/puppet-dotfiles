@@ -14,3 +14,4 @@ spec/fixtures
 # Other
 *.swp
 *.log
+github_rsa*

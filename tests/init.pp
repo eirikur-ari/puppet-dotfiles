@@ -1,3 +1,1 @@
-node default {
-  include my-workstation-setup
-}
+include my_workstation_setup
