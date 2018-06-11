@@ -28,8 +28,10 @@ task :spec_clean do
   FileUtils.rm_rf("spec/fixtures/")
 end
 
+# TODO: Should test remove the fixtures?
 task :test => [
     :syntax,
     :lint,
+    :spec_prep,
     :spec,
 ]
