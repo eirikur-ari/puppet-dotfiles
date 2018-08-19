@@ -1,4 +1,4 @@
-# my_workstation_setup/manifests/config.pp
+# my_workstation_setup/modules/config.pp
 
 class my_workstation_setup::config {
   file { 'ssh_known_hosts':

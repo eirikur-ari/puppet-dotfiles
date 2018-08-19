@@ -1,10 +1,10 @@
-# my_workstation_setup/manifests/install.pp
+# my_workstation_setup/modules/install.pp
 
 class my_workstation_setup::install {
   package { 'epel-release':
     ensure   => 'present',
     provider => 'rpm',
-    source   => 'http://fedora.skyggnir.is/epel/epel-release-latest-7.noarch.rpm'
+    source   => $my_workstation_setup::epel_release_source
   }
 
   package { 'vim':  ensure => 'installed' }

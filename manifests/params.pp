@@ -1,4 +1,4 @@
-# my_workstation_setup/manifests/params.pp
+# my_workstation_setup/modules/params.pp
 
 class my_workstation_setup::params {
 
@@ -12,4 +12,7 @@ class my_workstation_setup::params {
   $dotfiles_install_path   = '/usr/local/share/dotfiles'
   $dotfiles_repository_url = 'git@github.com:eirikur-ari/dotfiles.git'
   $dotfiles_install_script = 'install.sh'
+
+  # Yum repositories
+  $epel_release_source = 'http://fedora.skyggnir.is/epel/epel-release-latest-7.noarch.rpm'
 }
