@@ -15,12 +15,13 @@ class my_workstation_setup::config {
     require => File['ssh_known_hosts']
   }
 
+  # TODO: Using ssh key requires .ssh/config
   vcsrepo { 'clone_dotfiles':
     ensure   => present,
     path     => $my_workstation_setup::dotfiles_install_path,
     provider => git,
     source   => $my_workstation_setup::dotfiles_repository_url,
-    require  => [ Package['git'], Package['pygments'] , Exec['add_github_to_known_hosts'] ]
+    require  => [ Package['git'], Package['pygments'], Exec['add_github_to_known_hosts'] ]
   }
 
   #TODO: Currently the dotfiles are only installed for current running user
