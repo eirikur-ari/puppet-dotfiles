@@ -19,7 +19,7 @@ task :spec_prep do
   FileUtils::mkdir_p(fixture_module_path)
 #  FileUtils.ln_sf "../../../../files", fixture_module_path
   FileUtils.ln_sf "../../../../manifests", fixture_module_path
- # FileUtils.ln_sf "../../../../templates", fixture_module_path
+  FileUtils.ln_sf "../../../../templates", fixture_module_path
 end
 
 Rake::Task[:spec_clean].clear

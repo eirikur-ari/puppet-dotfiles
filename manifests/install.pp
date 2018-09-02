@@ -1,10 +1,12 @@
 # my_workstation_setup/modules/install.pp
 
-class my_workstation_setup::install {
+class my_workstation_setup::install(
+  $epel_release_source,
+) {
   package { 'epel-release':
     ensure   => 'present',
     provider => 'rpm',
-    source   => $my_workstation_setup::epel_release_source
+    source   => $epel_release_source
   }
 
   package { 'vim':  ensure => 'installed' }
