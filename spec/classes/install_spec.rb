@@ -3,13 +3,13 @@
 require 'spec_helper'
 
 describe 'my_workstation_setup::install' do
-  let(:params) {{
-      :epel_release_source => "http://test"
-  }}
 
   context 'ensures the epel-release yum repo is created' do
+    let(:params) do {
+        :epel_release_source => "http://test"
+    } end
 
-    it { should contain_package('epel-release').with(:ensure => 'present', :provider => 'rpm') }
+    it { should contain_package('epel-release').with(:ensure => 'present', :provider => 'rpm', :source => 'http://test') }
   end
 
   context 'ensure that git is installed' do

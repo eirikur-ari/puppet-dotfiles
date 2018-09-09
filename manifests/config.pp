@@ -1,13 +1,15 @@
 # my_workstation_setup/modules/config.pp
 
-class my_workstation_setup::config(
-  $github_ssh_key,
-  $ssh_known_hosts_file_path,
-  $ssh_config_dir,
-  $dotfiles_install_path,
-  $dotfiles_repository_url,
-  $dotfiles_install_script,
+class my_workstation_setup::config (
+  $github_ssh_key            = '',
+  $ssh_known_hosts_file_path = '',
+  $ssh_config_dir            = '',
+  $dotfiles_install_path     = '',
+  $dotfiles_repository_url   = '',
+  $dotfiles_install_script   = '',
 ) {
+
+
   file { 'ssh_known_hosts':
     ensure  => 'present',
     path    => $ssh_known_hosts_file_path,
@@ -21,11 +23,16 @@ class my_workstation_setup::config(
     require => File['ssh_known_hosts']
   }
 
-  # TODO: Pass in parameter to the config template
+  file { 'create_ssh_config_dir':
+    ensure => 'directory',
+    path   => $ssh_config_dir
+  }
+
   file { 'ssh_config':
     ensure  => file,
     path    => "${ssh_config_dir}/config",
-    content => template('my_workstation_setup/.ssh/config.erb')
+    content => template('my_workstation_setup/.ssh/config.erb'),
+    require => File['create_ssh_config_dir']
   }
 
   vcsrepo { 'clone_dotfiles':
@@ -36,7 +43,6 @@ class my_workstation_setup::config(
     require  => [ Exec['add_github_to_known_hosts'], File['ssh_config'] ]
   }
 
-  #TODO: Currently the dotfiles are only installed for current running user
   exec { 'install_dotfiles':
     path    => '/bin',
     command => "sh ${dotfiles_install_path}/${dotfiles_install_script}",

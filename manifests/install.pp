@@ -1,7 +1,7 @@
 # my_workstation_setup/modules/install.pp
 
 class my_workstation_setup::install(
-  $epel_release_source,
+  $epel_release_source = '',
 ) {
   package { 'epel-release':
     ensure   => 'present',

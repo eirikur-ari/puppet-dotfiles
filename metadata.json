@@ -1,8 +1,8 @@
 {
   "name": "my-workstation-setup",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Eirikur Ari Petursson",
-  "summary": "Initial setup for my workstation"
+  "summary": "Initial setup for my workstation",
   "license": "BEER-WARE",
   "source": "",
   "dependencies": [],

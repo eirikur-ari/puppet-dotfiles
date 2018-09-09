@@ -12,7 +12,13 @@ class my_workstation_setup (
 
 ) inherits my_workstation_setup::params {
 
-  # TODO: Verify params
+  validate_string($github_ssh_key)
+  validate_string($ssh_config_dir)
+  validate_string($ssh_known_hosts_file_path)
+  validate_string($dotfiles_install_path)
+  validate_string($dotfiles_install_script)
+  validate_string($dotfiles_repository_url)
+  validate_string($epel_release_source)
 
   anchor { 'my_workstation_setup::begin': }
   -> class { 'my_workstation_setup::install':

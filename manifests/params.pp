@@ -2,10 +2,9 @@
 
 class my_workstation_setup::params {
 
-  #TODO: check if the ssh key file exists
   # ssh key's
-  $github_ssh_key      = 'github_rsa'
-  $ssh_config_dir = "/root/.ssh"
+  $github_ssh_key = 'github_rsa'
+  $ssh_config_dir = '/root/.ssh'
 
   $ssh_known_hosts_file_path = '/etc/ssh/ssh_known_hosts'
 
