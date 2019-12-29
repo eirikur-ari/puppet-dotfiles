@@ -1,10 +1,37 @@
 {
-  "name": "unihell-my_workstation_setup",
+  "name": "eirikur-my_dotfiles",
   "version": "1.0.0",
-  "author": "Eirikur Ari Petursson",
-  "summary": "Initial setup for my workstation",
+  "author": "Eirikur Ari <eirikur.ari@hotmail.com>",
+  "summary": "Initial setup for my dotfiles",
   "license": "BEER-WARE",
-  "source": "",
-  "dependencies": [],
-  "data_provider": null
+  "source": "https://github.com/eirikur-ari/my_dotfiles",
+  "project_page": "https://github.com/eirikur-ari/my_dotfiles",
+  "issues_url": "https://github.com/eirikur-ari/my_dotfiles/issues",
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.10.11 < 7.0.0"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": "4.25.1"
+    },
+    {
+      "name": "puppetlabs/puppetlabs-vcsrepo",
+      "version_requirement": "2.3.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ],
+  "pdk-version": "1.14.0",
+  "template-url": "pdk-default#1.14.0",
+  "template-ref": "1.14.0-0-g1bf3a4e"
 }
