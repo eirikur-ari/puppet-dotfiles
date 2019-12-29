@@ -3,10 +3,9 @@
 *.iml
 
 # Puppet
-.librarian/
-.tmp/
-modules/
 spec/fixtures
+coverage/
+pkg/
 
 # Vagrant
 .vagrant/

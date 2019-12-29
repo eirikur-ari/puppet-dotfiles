@@ -1,6 +1,6 @@
-# my_workstation_setup/modules/params.pp
+# my_dotfiles/modules/params.pp
 
-class my_workstation_setup::params {
+class my_dotfiles::params {
 
   # ssh key's
   $github_ssh_key = 'github_rsa'

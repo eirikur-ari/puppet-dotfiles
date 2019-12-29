@@ -1,7 +1,9 @@
 require 'bundler/setup'
 require 'puppetlabs_spec_helper/rake_tasks'
+require 'puppet-lint/tasks/puppet-lint'
 require 'puppet-syntax/tasks/puppet-syntax'
 
+=begin
 Rake::Task[:spec_prep].clear
 desc "Create the fixtures directory"
 task :spec_prep do
@@ -27,11 +29,19 @@ desc "Cleanup the fixtures directory"
 task :spec_clean do
   FileUtils.rm_rf("spec/fixtures/")
 end
+=end
 
-# TODO: Should test remove the fixtures?
+PuppetLint.configuration.fail_on_warnings = true
+
+exclude_paths = [
+  "pkg/**/*",
+  "spec/**/*",
+]
+PuppetLint.configuration.ignore_paths = exclude_paths
+PuppetSyntax.exclude_paths = exclude_paths
+
 task :test => [
     :syntax,
     :lint,
-    :spec_prep,
     :spec,
 ]

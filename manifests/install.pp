@@ -1,6 +1,6 @@
-# my_workstation_setup/modules/install.pp
+# my_dotfiles/modules/install.pp
 
-class my_workstation_setup::install(
+class my_dotfiles::install(
   $epel_release_source = '',
 ) {
   package { 'epel-release':

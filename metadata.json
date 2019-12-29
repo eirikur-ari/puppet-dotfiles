@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Eirikur Ari <eirikur.ari@hotmail.com>",
   "summary": "Initial setup for my dotfiles",
-  "license": "BEER-WARE",
+  "license": "Beerware",
   "source": "https://github.com/eirikur-ari/my_dotfiles",
   "project_page": "https://github.com/eirikur-ari/my_dotfiles",
   "issues_url": "https://github.com/eirikur-ari/my_dotfiles/issues",
@@ -19,7 +19,7 @@
       "version_requirement": "4.25.1"
     },
     {
-      "name": "puppetlabs/puppetlabs-vcsrepo",
+      "name": "puppetlabs/vcsrepo",
       "version_requirement": "2.3.0"
     }
   ],

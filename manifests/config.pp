@@ -1,6 +1,6 @@
-# my_workstation_setup/modules/config.pp
+# my_dotfiles/modules/config.pp
 
-class my_workstation_setup::config (
+class my_dotfiles::config (
   $github_ssh_key            = '',
   $ssh_known_hosts_file_path = '',
   $ssh_config_dir            = '',
@@ -31,7 +31,7 @@ class my_workstation_setup::config (
   file { 'ssh_config':
     ensure  => file,
     path    => "${ssh_config_dir}/config",
-    content => template('my_workstation_setup/.ssh/config.erb'),
+    content => template('my_dotfiles/.ssh/config.erb'),
     require => File['create_ssh_config_dir']
   }
 
