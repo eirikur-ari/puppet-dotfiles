@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'my_dotfiles::install' do
+describe 'dotfiles::install' do
 
   context 'ensures the epel-release yum repo is created' do
     let(:params) do {

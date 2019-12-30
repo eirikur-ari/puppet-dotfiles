@@ -14,4 +14,5 @@ group :test do
   gem "puppet-syntax"
   gem "puppetlabs_spec_helper"
   gem "rspec-puppet-facts"
+  gem "rubocop"
 end

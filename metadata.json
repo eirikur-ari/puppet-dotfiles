@@ -1,12 +1,15 @@
 {
-  "name": "eirikur-my_dotfiles",
+  "name": "eirikur-dotfiles",
   "version": "1.0.0",
   "author": "Eirikur Ari <eirikur.ari@hotmail.com>",
   "summary": "Initial setup for my dotfiles",
   "license": "Beerware",
-  "source": "https://github.com/eirikur-ari/my_dotfiles",
-  "project_page": "https://github.com/eirikur-ari/my_dotfiles",
-  "issues_url": "https://github.com/eirikur-ari/my_dotfiles/issues",
+  "source": "https://github.com/eirikur-ari/puppet-dotfiles",
+  "project_page": "https://github.com/eirikur-ari/puppet-dotfiles",
+  "issues_url": "https://github.com/eirikur-ari/puppet-dotfiles/issues",
+  "tags": [
+    "dotfiles"
+  ],
   "requirements": [
     {
       "name": "puppet",

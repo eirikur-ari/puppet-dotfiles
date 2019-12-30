@@ -2,14 +2,14 @@
 
 require 'spec_helper'
 
-describe 'my_dotfiles' do
+describe 'dotfiles' do
 
   context 'should contain classes' do
-    it{ should contain_anchor('my_dotfiles::begin')}
-    it{ should contain_class('my_dotfiles::params') }
-    it{ should contain_class('my_dotfiles::install') }
-    it{ should contain_class('my_dotfiles::config') }
-    it{ should contain_anchor('my_dotfiles::end')}
+    it{ should contain_anchor('dotfiles::begin')}
+    it{ should contain_class('dotfiles::params') }
+    it{ should contain_class('dotfiles::install') }
+    it{ should contain_class('dotfiles::config') }
+    it{ should contain_anchor('dotfiles::end')}
   end
 
 end

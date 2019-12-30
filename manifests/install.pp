@@ -1,6 +1,6 @@
-# my_dotfiles/modules/install.pp
+# dotfiles/modules/install.pp
 
-class my_dotfiles::install(
+class dotfiles::install(
   $epel_release_source = '',
 ) {
   package { 'epel-release':

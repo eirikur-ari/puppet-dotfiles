@@ -6,6 +6,8 @@
 spec/fixtures
 coverage/
 pkg/
+.bundle/
+bin/
 
 # Vagrant
 .vagrant/

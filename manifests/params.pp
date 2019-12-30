@@ -1,6 +1,6 @@
-# my_dotfiles/modules/params.pp
+# dotfiles/modules/params.pp
 
-class my_dotfiles::params {
+class dotfiles::params {
 
   # ssh key's
   $github_ssh_key = 'github_rsa'

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'my_dotfiles::config' do
+describe 'dotfiles::config' do
 
   context 'ensures that the file ssh_known_hosts is present and configured' do
     let(:params) do {

@@ -1,4 +1,4 @@
-# My workstation setup
+# My dotfiles setup
 
 # Testing
-Ruby version: 2.3.4
+Ruby version: 2.5.7
