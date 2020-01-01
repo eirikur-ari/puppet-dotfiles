@@ -13,6 +13,10 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "centos/7"
+  #config.vm.box = "generic/fedora29"
+  #config.vm.box = "terrywang/archlinux"
+  #config.vm.box = "generic/ubuntu1904"
+  #config.vm.box = "generic/ubuntu1804"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -66,8 +70,20 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+    
+    #Prep CentOS or Fedora
     yum -y install https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+    #yum -y install https://yum.puppetlabs.com/puppet-release-fedora-30.noarch.rpm 
     yum -y install puppet-agent
     yum -y install unzip
+
+    # Prep Archlinux
+    #pacman -S puppet --noconfirm
+    #pacman -S unzip --noconfirm
+    
+    # Prep Ubuntu
+    #apt update -y
+    #apt install puppet -y
+    #apt install unzip -y
   SHELL
 end

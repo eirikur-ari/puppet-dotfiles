@@ -6,7 +6,10 @@ describe 'dotfiles::install' do
 
   context 'ensures the epel-release yum repo is created' do
     let(:params) do {
-        :epel_release_source => "http://test"
+      :epel_release_source => "http://test"
+    } end
+    let(:facts) do {
+      operatingsystem: 'CentOS'
     } end
 
     it { should contain_package('epel-release').with(:ensure => 'present', :provider => 'rpm', :source => 'http://test') }
@@ -17,11 +20,19 @@ describe 'dotfiles::install' do
   end
 
   context 'ensure that pygments is installed' do
-    it { should contain_package('pygments').with(:ensure => 'present')}
+    it { should contain_package('pygments').with(:ensure => 'present', :require  => 'Package[python-pip]')}
   end
 
   context 'ensure that python-pip is installed' do
     it { should contain_package('python-pip').with(:ensure => 'installed')}
+  end
+
+  context 'ensures that python-pip is installed using the epel repository for CentOS' do
+    let(:facts) do {
+      operatingsystem: 'CentOS'
+    } end
+
+    it { should contain_package('python-pip').with(:ensure => 'installed', :require => 'Package[epel-release]')}
   end
 
   context 'ensure that subversion is installed' do

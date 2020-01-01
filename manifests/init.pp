@@ -22,7 +22,7 @@ class dotfiles (
 
   anchor { 'dotfiles::begin': }
   -> class { 'dotfiles::install':
-    epel_release_source => $epel_release_source,
+    epel_release_source     => $epel_release_source,
   }
   -> class { 'dotfiles::config':
     github_ssh_key            => $github_ssh_key,

@@ -4,8 +4,4 @@ ipaddress6: "FE80:0000:0000:0000:AAAA:AAAA:AAAA"
 is_pe: false
 macaddress: "AA:AA:AA:AA:AA:AA"
 
-architecture: 'x86_64'
-operatingsystem: 'centos'
-osfamily: 'RedHat'
-operatingsystemrelease: '7'
-kernel: 'Linux'
+operatingsystem: 'Archlinux'

@@ -14,5 +14,9 @@ class dotfiles::params {
   $dotfiles_install_script = 'install.sh'
 
   # Yum repositories
-  $epel_release_source = 'http://fedora.skyggnir.is/epel/epel-release-latest-7.noarch.rpm'
+  case $::operatingsystem {
+    'CentOS': { $epel_release_source = "http://fedora.skyggnir.is/epel/epel-release-latest-${::operatingsystemmajrelease}.noarch.rpm" }
+    default: { $epel_release_source = undef }
+  }
+
 }

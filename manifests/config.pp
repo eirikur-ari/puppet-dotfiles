@@ -9,6 +9,10 @@ class dotfiles::config (
   $dotfiles_install_script   = '',
 ) {
 
+  case $::operatingsystem {
+    'Ubuntu': { $shell_exec_cmd = 'bash' }
+    default: { $shell_exec_cmd = 'sh' }
+  }
 
   file { 'ssh_known_hosts':
     ensure  => 'present',
@@ -45,7 +49,8 @@ class dotfiles::config (
 
   exec { 'install_dotfiles':
     path    => '/bin',
-    command => "sh ${dotfiles_install_path}/${dotfiles_install_script}",
+    command => "${shell_exec_cmd} ${dotfiles_install_path}/${dotfiles_install_script}",
     require => VCSREPO['clone_dotfiles']
   }
+
 }

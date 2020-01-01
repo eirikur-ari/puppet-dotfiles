@@ -30,8 +30,26 @@
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
+        "6",
         "7"
       ]
+    },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [
+        "29",
+        "30"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "18.04",
+        "19.04"
+      ]
+    },
+    {
+      "operatingsystem": "Archlinux"
     }
   ],
   "pdk-version": "1.14.0",

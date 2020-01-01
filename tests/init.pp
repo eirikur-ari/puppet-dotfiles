@@ -1,1 +1,1 @@
-include my_workstation_setup
+include dotfiles
