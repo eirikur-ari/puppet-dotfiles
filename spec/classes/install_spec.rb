@@ -9,7 +9,7 @@ describe 'dotfiles::install' do
       :epel_release_source => "http://test"
     } end
     let(:facts) do {
-      operatingsystem: 'CentOS'
+      :operatingsystem => 'CentOS'
     } end
 
     it { should contain_package('epel-release').with(:ensure => 'present', :provider => 'rpm', :source => 'http://test') }
@@ -29,7 +29,7 @@ describe 'dotfiles::install' do
 
   context 'ensures that python-pip is installed using the epel repository for CentOS' do
     let(:facts) do {
-      operatingsystem: 'CentOS'
+      :operatingsystem => 'CentOS'
     } end
 
     it { should contain_package('python-pip').with(:ensure => 'installed', :require => 'Package[epel-release]')}
