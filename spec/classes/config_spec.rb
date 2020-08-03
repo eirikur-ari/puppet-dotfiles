@@ -34,13 +34,13 @@ describe 'dotfiles::config' do
     let(:params) do {
       :ssh_config_dir          => 'test/.ssh',
       :dotfiles_install_path   => 'test/dotfiles',
-      :dotfiles_repository_url => 'https://test.repo',
+      :dotfiles_repository_url => 'git@test.repo:test/dotfiles.git',
       :dotfiles_install_script => 'test.sh',
     } end
 
     it { should contain_vcsrepo('clone_dotfiles').with(:ensure => 'present',
                                                        :path => 'test/dotfiles',
-                                                       :source => 'https://test.repo')
+                                                       :source => 'git@test.repo:test/dotfiles.git')
     }
 
     it { should contain_exec('install_dotfiles').with(:command => "sh test/dotfiles/test.sh")}
