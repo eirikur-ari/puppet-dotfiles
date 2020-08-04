@@ -32,12 +32,13 @@ describe 'dotfiles::install' do
       it { should contain_package('git').with(:ensure => 'installed')}
   end
 
-  context 'ensure that pygments is installed' do
-    it { should contain_package('pygments').with(:ensure => 'present', :require  => 'Package[python-pip]')}
+  context 'ensure that latest version of pip is installed' do
+    it { should contain_package('python-pip').with(:ensure => 'installed')}
+    it { should contain_package('pip').with(:ensure   => 'latest', :provider => 'pip', :require  => 'Package[python-pip]')}
   end
 
-  context 'ensure that python-pip is installed' do
-    it { should contain_package('python-pip').with(:ensure => 'installed')}
+  context 'ensure that pygments is installed' do
+    it { should contain_package('pygments').with(:ensure => 'present', :require  => 'Package[pip]')}
   end
 
   context 'ensure that subversion is installed' do

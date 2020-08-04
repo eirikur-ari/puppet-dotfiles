@@ -18,7 +18,8 @@ class dotfiles::install(
     }
   }
 
-  package { 'pygments': ensure => 'present', provider => 'pip', require  => Package['python-pip'] }
+  package { 'pip': ensure   => 'latest', provider => 'pip', require  => Package['python-pip'] }
+  package { 'pygments': ensure => 'present', provider => 'pip', require  => Package['pip'] }
   package { 'vim':  ensure => 'installed' }
   package { 'tree': ensure => 'installed' }
   package { 'git':  ensure => 'installed' }
