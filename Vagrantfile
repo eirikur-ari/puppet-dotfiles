@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "archlinux", autostart: false do |archlinux|
     archlinux.vm.network "private_network", ip: "192.168.36.3"
-    archlinux.vm.box = "terrywang/archlinux"
+    archlinux.vm.box = "archlinux/archlinux"
     archlinux.vm.provision "shell", inline: <<-SHELL
       pacman -S puppet --noconfirm
       pacman -S unzip --noconfirm
