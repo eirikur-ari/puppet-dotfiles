@@ -89,13 +89,7 @@ PLATFORMS
 DEPENDENCIES
   metadata-json-lint
   puppet (= 4.10.11)
-  puppet-lint
-  puppet-syntax
   puppetlabs_spec_helper
-  rake
-  rspec
-  rspec-core
-  rspec-puppet
   rspec-puppet-facts
   rubocop
 
