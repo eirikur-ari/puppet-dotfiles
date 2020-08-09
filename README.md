@@ -1,5 +1,7 @@
 # My dotfiles setup
 
+[![Build Status](https://travis-ci.com/eirikur-ari/puppet-dotfiles.svg?branch=master)](https://travis-ci.com/eirikur-ari/puppet-dotfiles)
+
 # Development 
 
 ## Requirements
