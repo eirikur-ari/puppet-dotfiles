@@ -4,7 +4,6 @@ before_install: rm Gemfile.lock || true
 rvm:
   - 2.5.7
 sudo: false
-cache: bundler
 script: bundle exec rake test
 env:
   - PUPPET_VERSION="4.10.11"
