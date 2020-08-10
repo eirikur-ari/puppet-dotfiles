@@ -7,3 +7,13 @@ sudo: false
 script: bundle exec rake test
 env:
   - PUPPET_VERSION="4.10.11"
+
+deploy:
+  provider: puppetforge
+  user: "$FORGE_USER"
+  password:
+    secure: "$FORGE_API_KEY"
+  on:
+    tags: true
+    # all_branches is required to use tags
+    all_branches: true

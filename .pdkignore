@@ -5,20 +5,29 @@
 # VScode
 .vscode/
 
+# Git
+.git/
+.gitignore
+
 # Puppet
+pkg/
 spec/fixtures/
 coverage/
-pkg/
+.fixtures.yml
+.pdkignore
+
+# Build
 .bundle/
 bin/
 vendor/
+junit/
+log/
+Gemfile.lock
+.travis.yml
 
 # Vagrant
 .vagrant/
-
-# Beaker
-junit/
-log/
+Vagrantfile
 
 # Other
 *.swp
