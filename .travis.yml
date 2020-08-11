@@ -12,11 +12,15 @@ matrix:
   - rvm: 2.5.7
     env: PUPPET_VERSION="~> 5.5" PDK_VERSION="~> 1.18" CHECK=test
     bundler_args: --without development
+branches:
+  only:
+  - master
+  - /^v\d/
 deploy:
   provider: puppetforge
   user: eirikur
   password:
-    secure: "M90SZ0bvyZpJXQu1SthJbmh2TXdYbu5xhNUKYtaCDN4yGtjsVTiKEzk9phCKPmqVaq3HXDHs6y4efIOOR3YHZVgmJfTXs3x97n7+4Ef2I2/U6VioCTSD1GHeSPNUa116lfksSX064BiOP67E42w4n7xPEW/Hpge5zeWgPwINHVIPeIUbrG4nAubr8WQO6rdT1MZ8Zap3/uB10xwTDi1i9BYHihMR2r4wXSe5BWzVelmxXkFiHazsPKB3wnmtXKdXVw5wC4PIFs9qNDwckijIy4HQeUTM47Yq0+0dgFrmQqW0tIuanepROhuESevaDBr0g5Y27kuRj2bvxKBOG1ZYt80IcFVnn/4ORf6Jwg2oi5OOm/a6+RR8Uq6594Zs2QxAJMtXdIM1g3ZWYTnUZMpV48nJmv6UPQCOScAfu+9g2AIZjrXoNroaxBPRMmW8gpXtKH/agL8LOnzEnCtMR/cJU3tLsNhBe9zCAUR/jOIUcmnpAUzUTuEA3dcYXjdtzK3aFgEofo9UZdBP0bTGUQKRNbxMUHZoXXboMU5Q0xmp/xUmtNHkYQxaSv1v+tUnoUs4rUoDRDSzocOuYGXKJIbw9xTonmB6CZqa28psZ9S7FKJ4t6n2Jq62YcEGF2Gqrb86SqwgOuwZDu6ip+I9Of4BUZ1uNrWhNGSUAG/a1jmuBUI="
+    secure: $PUPPETFORGE_PASSWORD
   on:
     tags: true
     # all_branches is required to use tags
