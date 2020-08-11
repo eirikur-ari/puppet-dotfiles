@@ -28,7 +28,7 @@ class { 'dotfiles':
 ## Development 
 
 ### Requirements
-Puppet version: 6.17.0\
+Puppet version: 5.5\
 Ruby version: 2.5.7
 
 ### Unit Testing

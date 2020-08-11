@@ -1,11 +1,12 @@
 language: ruby
 before_install: rm Gemfile.lock || true
 sudo: false
+cache: bundler
 script: bundle exec rake $CHECK
 matrix:
   fast_finish: true
   include:
   - rvm: 2.5.7
-    env: PUPPET_VERSION="~> 6.17" PDK_VERSION="~> 1.18" CHECK=build:pdk
+    env: PUPPET_VERSION="~> 5.5" PDK_VERSION="~> 1.18" CHECK=build:pdk
   - rvm: 2.5.7
-    env: PUPPET_VERSION="~> 6.17" PDK_VERSION="~> 1.18" CHECK=test
+    env: PUPPET_VERSION="~> 5.5" PDK_VERSION="~> 1.18" CHECK=test

@@ -7,5 +7,5 @@ group :test do
   gem "rubocop",                :require => false
 end
 
-gem "pdk", ENV['PDK_VERSION'] || '~> 1.0.0'
-gem "puppet", ENV['PUPPET_VERSION'] || '~> 4.10.11'
+gem "pdk", ENV['PDK_VERSION'] || '~> 1.0'
+gem "puppet", ENV['PUPPET_VERSION'] || '~> 5.0'
