@@ -1,6 +1,8 @@
 # puppet-dotfiles
 
 [![Build Status](https://travis-ci.com/eirikur-ari/puppet-dotfiles.svg?branch=master)](https://travis-ci.com/eirikur-ari/puppet-dotfiles)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/eirikur/dotfiles.svg)](https://forge.puppetlabs.com/eirikur/dotfiles)
+
 
 ## About
 This module installs [my dotfiles](eirikur-ari/dotfiles) to a Linux machine (Puppet agent).
