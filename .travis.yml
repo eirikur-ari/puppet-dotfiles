@@ -12,16 +12,3 @@ matrix:
   - rvm: 2.5.7
     env: PUPPET_VERSION="~> 5.5" PDK_VERSION="~> 1.18" CHECK=test
     bundler_args: --without development
-branches:
-  only:
-  - master
-  - /^v\d/
-deploy:
-  provider: puppetforge
-  user: eirikur
-  password:
-    secure: $PUPPETFORGE_PASSWORD
-  on:
-    tags: true
-    # all_branches is required to use tags
-    all_branches: true
