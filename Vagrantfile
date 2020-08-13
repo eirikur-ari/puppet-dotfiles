@@ -10,7 +10,8 @@ Vagrant.configure("2") do |config|
     centos.vm.box = "centos/7"
     centos.vm.network "private_network", ip: "192.168.34.3"
     centos.vm.provision "shell", inline: <<-SHELL
-      yum -y install https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+     # yum -y install https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+      yum -y install http://yum.puppet.com/puppet5-release-el-7.noarch.rpm
       yum -y install puppet-agent
       yum -y install unzip
     SHELL
