@@ -4,6 +4,7 @@ class dotfiles::config (
   $github_ssh_key            = undef,
   $ssh_config_dir            = undef,
   $ssh_known_hosts_file_path = undef,
+  $use_ssh_key               = false,
 ) {
 
   file { 'ssh_known_hosts':
@@ -19,16 +20,18 @@ class dotfiles::config (
     require => File['ssh_known_hosts']
   }
 
-  file { 'create_ssh_config_dir':
-    ensure => 'directory',
-    path   => $ssh_config_dir
-  }
+  if $use_ssh_key {
+    file { 'create_ssh_config_dir':
+      ensure => 'directory',
+      path   => $ssh_config_dir
+    }
 
-  file { 'ssh_config':
-    ensure  => file,
-    path    => "${ssh_config_dir}/config",
-    content => template('dotfiles/.ssh/config.erb'),
-    require => File['create_ssh_config_dir']
+    file { 'ssh_config':
+      ensure  => file,
+      path    => "${ssh_config_dir}/config",
+      content => template('dotfiles/.ssh/config.erb'),
+      require => File['create_ssh_config_dir']
+    }
   }
 
 }

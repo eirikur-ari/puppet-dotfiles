@@ -1,7 +1,14 @@
 # Use default configuration during testing
 include dotfiles
 
-# For customized test
+# Clone using ssh key
+# node default {
+#   class { 'dotfiles':
+#     use_ssh_key => true,
+#   }
+# }
+
+# Example of available configuraiton
 # node default {
 #  class { 'dotfiles':
 #    github_ssh_key            => 'example_rsa_key',
@@ -10,5 +17,6 @@ include dotfiles
 #    dotfiles_install_path     => 'example/dotfiles',
 #    dotfiles_repository_url   => 'git@some.repo:example/dotfiles.git',
 #    dotfiles_install_script   => 'example.sh',
+#    use_ssh_key               => true,
 #  }
 # }

@@ -21,6 +21,7 @@ describe 'dotfiles::config' do
     let(:params) do {
       :github_ssh_key => 'test_rsa',
       :ssh_config_dir => 'test/.ssh',
+      :use_ssh_key    => true,
     } end
 
     it { should contain_file('create_ssh_config_dir').with(:ensure => 'directory', :path => 'test/.ssh') }
