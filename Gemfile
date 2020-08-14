@@ -1,7 +1,8 @@
 source ENV['GEM_SOURCE'] || "https://rubygems.org"
 
 group :development do
-  gem "travis", :require => false
+  gem "travis",               :require => false
+  gem "beaker-hostgenerator", :require => false
 end
 
 group :test do
@@ -11,9 +12,18 @@ group :test do
   gem "rubocop",                :require => false
 end
 
+group :system_test do
+  gem "beaker",                       :require => false
+  gem "beaker-docker",                :require => false
+  gem "beaker-rspec",                 :require => false
+ # gem "beaker-puppet",                :require => false
+  gem "beaker-puppet_install_helper", :require => false
+ # gem "beaker-module_install_helper", :require => false
+ # gem "serverspec",                   :require => false
+end
+
 group :release do
   gem 'puppet-blacksmith', :require => false
 end
 
-gem "pdk", ENV['PDK_VERSION'] || '~> 1.0'
-gem "puppet", ENV['PUPPET_VERSION'] || '~> 5.0'
+gem "puppet", ENV['PUPPET_VERSION'] || '~> 5.0', :require => false
