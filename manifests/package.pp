@@ -1,7 +1,7 @@
 # dotfiles/modules/package.pp
 
 class dotfiles::package(
-  $epel_release_source = '',
+  $epel_release_source = undef,
 ) {
 
   case $::operatingsystem {

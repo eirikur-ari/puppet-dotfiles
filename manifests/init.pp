@@ -25,14 +25,15 @@ class dotfiles (
     epel_release_source => $epel_release_source,
   }
   -> class { 'dotfiles::config':
-    dotfiles_install_path     => $dotfiles_install_path,
-    dotfiles_install_script   => $dotfiles_install_script,
-    dotfiles_repository_url   => $dotfiles_repository_url,
     github_ssh_key            => $github_ssh_key,
     ssh_config_dir            => $ssh_config_dir,
     ssh_known_hosts_file_path => $ssh_known_hosts_file_path,
   }
-  -> class { 'dotfiles::install': }
+  -> class { 'dotfiles::install':
+    dotfiles_install_path   => $dotfiles_install_path,
+    dotfiles_install_script => $dotfiles_install_script,
+    dotfiles_repository_url => $dotfiles_repository_url,
+  }
   -> anchor { 'dotfiles::end': }
 
 }
