@@ -1,12 +1,12 @@
 # dotfiles/modules/config.pp
 
 class dotfiles::config (
-  $github_ssh_key            = '',
-  $ssh_known_hosts_file_path = '',
-  $ssh_config_dir            = '',
   $dotfiles_install_path     = '',
-  $dotfiles_repository_url   = '',
   $dotfiles_install_script   = '',
+  $dotfiles_repository_url   = '',
+  $github_ssh_key            = '',
+  $ssh_config_dir            = '',
+  $ssh_known_hosts_file_path = '',
 ) {
 
   case $::operatingsystem {
@@ -52,5 +52,4 @@ class dotfiles::config (
     command => "${shell_exec_cmd} ${dotfiles_install_path}/${dotfiles_install_script}",
     require => VCSREPO['clone_dotfiles']
   }
-
 }

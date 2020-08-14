@@ -30,7 +30,7 @@ describe 'dotfiles::config' do
     }
   end
 
-  context 'ensure that my dofiles will be cloned and installed' do
+  context 'ensure that my dofiles will be cloned' do
     let(:params) do {
       :ssh_config_dir          => 'test/.ssh',
       :dotfiles_install_path   => 'test/dotfiles',
@@ -42,20 +42,6 @@ describe 'dotfiles::config' do
                                                        :path => 'test/dotfiles',
                                                        :source => 'git@test.repo:test/dotfiles.git')
     }
-
-    it { should contain_exec('install_dotfiles').with(:command => "sh test/dotfiles/test.sh")}
   end
 
-  context 'ensure that bash will be used to execute the dotfiles install script on Ubuntu' do
-    let(:params) do {
-      :ssh_config_dir          => 'test/.ssh',
-      :dotfiles_install_path   => 'test/dotfiles',
-      :dotfiles_install_script => 'test.sh',
-    } end
-    let(:facts) do {
-      operatingsystem: 'Ubuntu'
-    } end
-
-    it { should contain_exec('install_dotfiles').with(:command => "bash test/dotfiles/test.sh")}
-  end
 end
