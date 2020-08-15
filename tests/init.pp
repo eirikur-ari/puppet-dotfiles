@@ -4,7 +4,8 @@ include dotfiles
 # Clone using ssh key
 # node default {
 #   class { 'dotfiles':
-#     use_ssh_key => true,
+#     dotfiles_repository_url => 'git@github.com:eirikur-ari/dotfiles.git',
+#     use_ssh_key             => true,
 #   }
 # }
 

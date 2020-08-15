@@ -11,12 +11,7 @@ class dotfiles::params {
 
   # dotfiles
   $dotfiles_install_path   = '/usr/local/share/dotfiles'
-
-  if $use_ssh_key {
-    $dotfiles_repository_url = 'git@github.com:eirikur-ari/dotfiles.git'
-  } else {
-    $dotfiles_repository_url = 'https://github.com/eirikur-ari/dotfiles.git'
-  }
+  $dotfiles_repository_url = 'https://github.com/eirikur-ari/dotfiles.git'
 
   $dotfiles_install_script = 'install.sh'
 
