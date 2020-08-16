@@ -19,16 +19,16 @@ describe 'dotfiles::install' do
     
     it { should contain_exec('install_dotfiles').with(:require => '[Vcsrepo[clone_dotfiles]{:path=>"clone_dotfiles"}, Exec[update_gitmodules]{:command=>"update_gitmodules"}]') }
 
-    it { should contain_exec('rename_protocol_git_ssh_to_https').with(:command => 'sed -i "s/git@github.com:/https:\/\/github.com\//" .gitmodules', 
-                                                                      :require => 'Vcsrepo[clone_dotfiles]') 
+    it { should contain_exec('gitmodules_git_ssh_to_https').with(:command => 'sed -i "s/git@github.com:/https:\/\/github.com\//" .gitmodules', 
+                                                                 :require => 'Vcsrepo[clone_dotfiles]') 
     }
 
-    it { should contain_exec('rename_protocol_plain_git_to_https').with(:command => 'sed -i "s/git:\/\/github.com\//https:\/\/github.com\//" .gitmodules', 
-                                                                        :require => 'Vcsrepo[clone_dotfiles]')     
+    it { should contain_exec('gitmodules_plain_git_to_https').with(:command => 'sed -i "s/git:\/\/github.com\//https:\/\/github.com\//" .gitmodules', 
+                                                                   :require => 'Vcsrepo[clone_dotfiles]')     
     }
 
     it { should contain_exec('update_gitmodules').with(:command => 'git submodule update --init --recursive',
-                                                       :require => '[Exec[rename_protocol_git_ssh_to_https]{:command=>"rename_protocol_git_ssh_to_https"}, Exec[rename_protocol_plain_git_to_https]{:command=>"rename_protocol_plain_git_to_https"}]') 
+                                                       :require => '[Exec[gitmodules_git_ssh_to_https]{:command=>"gitmodules_git_ssh_to_https"}, Exec[gitmodules_plain_git_to_https]{:command=>"gitmodules_plain_git_to_https"}]') 
     }
   end
 
@@ -48,9 +48,9 @@ describe 'dotfiles::install' do
 
     it { should contain_exec('install_dotfiles').with(:require => 'Vcsrepo[clone_dotfiles]') }
 
-    it { should_not contain_exec('rename_protocol_git_ssh_to_https') }
+    it { should_not contain_exec('gitmodules_git_ssh_to_https') }
 
-    it { should_not contain_exec('rename_protocol_plain_git_to_https') }
+    it { should_not contain_exec('gitmodules_plain_git_to_https') }
 
     it { should_not contain_exec('update_gitmodules') }
   end    

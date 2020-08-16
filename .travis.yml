@@ -1,3 +1,4 @@
+---
 language: ruby
 before_install: rm Gemfile.lock || true
 sudo: false
@@ -7,8 +8,32 @@ matrix:
   fast_finish: true
   include:
   - rvm: 2.5.7
-    env: PUPPET_VERSION="~> 5.5" PDK_VERSION="~> 1.18" CHECK=build:pdk
-    bundler_args: --without development
+    env: PUPPET_VERSION="~> 4.10" CHECK=test
+    bundler_args: --without development system_test
   - rvm: 2.5.7
-    env: PUPPET_VERSION="~> 5.5" PDK_VERSION="~> 1.18" CHECK=test
+    env: PUPPET_VERSION="~> 5.0" CHECK=test
+    bundler_args: --without development system_test
+  - rvm: 2.5.7
+    env: PUPPET_VERSION="~> 5.5" CHECK=test
+    bundler_args: --without development system_test
+  - rvm: 2.5.7
+    env: PUPPET_VERSION="~> 6.0" CHECK=test
+    bundler_args: --without development system_test
+  - rvm: 2.5.7
+    dist: trusty
+    env: BEAKER_IS_PE=no BEAKER_PUPPET_COLLECTION=puppet5 PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=centos-7 CHECK=beaker
     bundler_args: --without development
+    services: docker
+    sudo: required
+  - rvm: 2.5.7
+    dist: trusty
+    env: BEAKER_IS_PE=no BEAKER_PUPPET_COLLECTION=puppet5 PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=fedora-31 CHECK=beaker
+    bundler_args: --without development
+    services: docker
+    sudo: required
+  - rvm: 2.5.7
+    dist: trusty
+    env: BEAKER_IS_PE=no BEAKER_PUPPET_COLLECTION=puppet5 PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=ubuntu-1804 CHECK=beaker
+    bundler_args: --without development
+    services: docker
+    sudo: required

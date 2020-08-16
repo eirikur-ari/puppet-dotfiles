@@ -1,0 +1,9 @@
+HOSTS:
+  fedora-31-x64:
+    platform: fedora-31-x86_64
+    hypervisor : docker
+    image: fedora:31
+    docker_preserve_image: true
+    docker_cmd: '["/sbin/init"]'
+    docker_image_commands:
+      - 'dnf install -y crontabs tar wget'

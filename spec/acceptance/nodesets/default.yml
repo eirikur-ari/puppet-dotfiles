@@ -1,0 +1,7 @@
+HOSTS:
+  fedora-30-x64:
+    platform: fedora-30-x86_64
+    hypervisor : docker
+    image: fedora:30
+    docker_preserve_image: true
+    docker_cmd: '["/sbin/init"]'

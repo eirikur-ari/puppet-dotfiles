@@ -30,14 +30,14 @@ class dotfiles::install (
 
   if $use_ssh_key == false {
 
-    exec { 'rename_protocol_git_ssh_to_https':
+    exec { 'gitmodules_git_ssh_to_https':
       path    => '/bin',
       cwd     => $dotfiles_install_path,
       command => 'sed -i "s/git@github.com:/https:\/\/github.com\//" .gitmodules',
       require => Vcsrepo['clone_dotfiles']
     }
 
-    exec { 'rename_protocol_plain_git_to_https':
+    exec { 'gitmodules_plain_git_to_https':
       path    => '/bin',
       cwd     => $dotfiles_install_path,
       command => 'sed -i "s/git:\/\/github.com\//https:\/\/github.com\//" .gitmodules',
@@ -48,7 +48,7 @@ class dotfiles::install (
       path    => '/usr/bin',
       cwd     => $dotfiles_install_path,
       command => 'git submodule update --init --recursive',
-      require => [ Exec['rename_protocol_git_ssh_to_https'], Exec['rename_protocol_plain_git_to_https'] ]
+      require => [ Exec['gitmodules_git_ssh_to_https'], Exec['gitmodules_plain_git_to_https'] ]
     }
   }
 
